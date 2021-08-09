@@ -40,6 +40,11 @@ const Main = () => {
             restricted
             redirectTo={mainRoutes.authentication.register.redirectTo}
           />
+          <PrivateRoute
+            path="/goit-react-hw-08-phonebook"
+            redirectTo="/"
+            restricted
+          />
         </Switch>
       </Suspense>
     </main>

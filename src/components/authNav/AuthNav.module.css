@@ -12,6 +12,11 @@
   margin-left: 20px;
 }
 
+.header__link:hover,
+.header__link:focus {
+  color: blue;
+}
+
 .header__link_active {
   color: blue;
 }

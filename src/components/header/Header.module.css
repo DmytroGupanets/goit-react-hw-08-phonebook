@@ -25,6 +25,12 @@
   color: #212121;
 }
 
+.logo__link:hover,
+.logo__link:focus {
+  font-size: 36px;
+  color: blue;
+}
+
 .user__wrapper {
   display: flex;
   align-items: center;
