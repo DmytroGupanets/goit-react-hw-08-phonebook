@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styles from "./AuthNav.module.css";
+import { mainRoutes } from "../../routes/mainRoutes";
 
 const AuthNav = () => {
   return (
@@ -7,17 +8,17 @@ const AuthNav = () => {
       <NavLink
         className={styles.header__link}
         activeClassName={styles.header__link_active}
-        to="/register"
+        to={mainRoutes.authentication.register.path}
       >
-        Register
+        {mainRoutes.authentication.register.name}
       </NavLink>
 
       <NavLink
         className={styles.header__link}
         activeClassName={styles.header__link_active}
-        to="/login"
+        to={mainRoutes.authentication.login.path}
       >
-        Login
+        {mainRoutes.authentication.login.name}
       </NavLink>
     </>
   );

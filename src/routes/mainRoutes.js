@@ -1,25 +1,36 @@
+import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
+import PhonebookPage from "../pages/PhonebookPage";
 import RegisterPage from "../pages/RegisterPage";
 
-const mainRoutes = [
-  {
-    name: "Phonebook",
+export const mainRoutes = {
+  authentication: {
+    register: {
+      name: "Register",
+      path: "/register",
+      component: RegisterPage,
+      exact: false,
+      redirectTo: "/contacts",
+    },
+    login: {
+      name: "Login",
+      path: "/login",
+      component: LoginPage,
+      exact: false,
+      redirectTo: "/contacts",
+    },
+  },
+  homepage: {
+    name: "Homepage",
     path: "/",
-    component: "",
-    exact: false,
+    component: HomePage,
+    exact: true,
   },
-  {
-    name: "Registration",
-    path: "/registration",
-    component: RegisterPage,
+  phonebook: {
+    name: "Phonebook",
+    path: "/contacts",
+    component: PhonebookPage,
     exact: false,
+    redirectTo: "/",
   },
-  {
-    name: "Login",
-    path: "/login",
-    component: LoginPage,
-    exact: false,
-  },
-];
-
-export default mainRoutes;
+};

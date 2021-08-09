@@ -6,7 +6,8 @@ import {
   getFilteredContacts,
   getFilterValue,
   getLoaderCondition,
-} from "../../redux/selector/contacts-selector";
+} from "../../redux/contacts/contactsSelector";
+import { withRouter } from "react-router-dom";
 
 const ContactList = ({ isLoading, filteredContacts }) => {
   return (
@@ -30,4 +31,4 @@ const mapStateToProps = (state) => ({
   isLoading: getLoaderCondition(state),
 });
 
-export default connect(mapStateToProps)(ContactList);
+export default withRouter(connect(mapStateToProps)(ContactList));
