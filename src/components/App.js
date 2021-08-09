@@ -1,15 +1,22 @@
-import ContactForm from "./contactForm/ContactForm";
-import ContactsList from "./contactsList/ContactsList";
-import Filter from "./filter/Filter";
+import { Component } from "react";
+import { connect } from "react-redux";
+import { getCurrentUser } from "../redux/auth/authOperations";
+import Header from "./header/Header";
+import Main from "./main/Main";
 
-const App = () => {
-  return (
-    <>
-      <ContactForm />
-      <Filter />
-      <ContactsList />
-    </>
-  );
-};
+class App extends Component {
+  componentDidMount() {
+    this.props.getCurrentUser();
+  }
 
-export default App;
+  render() {
+    return (
+      <>
+        <Header />
+        <Main />
+      </>
+    );
+  }
+}
+
+export default connect(null, { getCurrentUser })(App);

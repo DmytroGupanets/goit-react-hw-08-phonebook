@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: baseline;
   margin-bottom: 15px;
+  font-family: "Varela Round", sans-serif;
 }
 .contactName {
   margin: 0;
@@ -16,11 +17,12 @@
   margin-left: 20px;
 
   color: #212121;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
 }
 
 .contactsButton {
+  font-family: "Varela Round", sans-serif;
   margin-left: 50px;
 
   color: #212121;
