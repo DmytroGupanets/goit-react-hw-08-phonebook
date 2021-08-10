@@ -16,7 +16,7 @@ export const fetchContactsOperation = () => async (dispatch) => {
   try {
     let response = await axios.get("/contacts").then((res) => res.data);
 
-    if (response.length) return;
+    if (response.length) dispatch(fetchContactsSuccess());
     dispatch(fetchContactsSuccess(response));
   } catch (error) {
     dispatch(fetchContactsError(error.message));
