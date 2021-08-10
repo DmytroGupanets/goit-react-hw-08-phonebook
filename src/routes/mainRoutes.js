@@ -1,39 +1,17 @@
 import { lazy } from "react";
 
-export const mainRoutes = {
-  auth: [
-    {
-      name: "Register",
-      path: "/register",
-      component: lazy(() =>
-        import("../pages/RegisterPage" /* webpackChunkName: 'RegisterPage' */)
-      ),
-      exact: false,
-      redirectTo: "/contacts",
-      private: false,
-      restricted: true,
-    },
-    {
-      name: "Login",
-      path: "/login",
-      component: lazy(() =>
-        import("../pages/LoginPage" /* webpackChunkName: 'LoginPage' */)
-      ),
-      exact: false,
-      redirectTo: "/contacts",
-      private: false,
-      restricted: true,
-    },
-  ],
-  homepage: {
+export const mainRoutes = [
+  {
     name: "Homepage",
     path: "/",
     component: lazy(() =>
       import("../pages/HomePage" /* webpackChunkName: 'HomePage' */)
     ),
     exact: true,
+    isPrivate: false,
+    restricted: false,
   },
-  phonebook: {
+  {
     name: "Phonebook",
     path: "/contacts",
     component: lazy(() =>
@@ -41,9 +19,30 @@ export const mainRoutes = {
     ),
     exact: false,
     redirectTo: "/",
+    isPrivate: true,
+    restricted: true,
   },
-  resetHomeUrl: {
-    path: "/goit-react-hw-08-phonebook",
-    redirectTo: "/",
+
+  {
+    name: "Register",
+    path: "/register",
+    component: lazy(() =>
+      import("../pages/RegisterPage" /* webpackChunkName: 'RegisterPage' */)
+    ),
+    exact: false,
+    redirectTo: "/contacts",
+    isPrivate: false,
+    restricted: true,
   },
-};
+  {
+    name: "Login",
+    path: "/login",
+    component: lazy(() =>
+      import("../pages/LoginPage" /* webpackChunkName: 'LoginPage' */)
+    ),
+    exact: false,
+    redirectTo: "/contacts",
+    isPrivate: false,
+    restricted: true,
+  },
+];

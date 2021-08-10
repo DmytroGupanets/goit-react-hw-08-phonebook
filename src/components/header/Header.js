@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getIsAuthenticated } from "../../redux/auth/authSelector";
-import { mainRoutes } from "../../routes/mainRoutes";
 import AuthNav from "../authNav/AuthNav";
 import UserNavMenu from "../userNavMenu/UserNavMenu";
 import styles from "./Header.module.css";
@@ -13,9 +12,9 @@ const Header = ({ isAuthenticated }) => {
         <NavLink
           className={styles.logo__link}
           activeClassName={styles.logo__link_active}
-          to={mainRoutes.phonebook.path}
+          to="/contacts"
         >
-          {mainRoutes.phonebook.name}
+          My contacts
         </NavLink>
 
         <div className={styles.user__wrapper}>

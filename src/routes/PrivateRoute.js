@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { getIsAuthenticated } from "../../redux/auth/authSelector";
+import { getIsAuthenticated } from "../redux/auth/authSelector";
 
 /**
  * - Если маршрут приватный и пользователь залогинен, рендерит компонент
@@ -11,6 +11,7 @@ const PrivateRoute = ({
   component: Component,
   isAuthenticated,
   redirectTo,
+  key,
   ...routeProps
 }) => {
   return (
@@ -18,7 +19,7 @@ const PrivateRoute = ({
       {...routeProps}
       render={(props) =>
         isAuthenticated ? (
-          <Component {...props} />
+          <Component {...props} key={key} />
         ) : (
           <Redirect to={redirectTo} />
         )
