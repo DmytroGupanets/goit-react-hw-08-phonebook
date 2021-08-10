@@ -1,36 +1,49 @@
-import HomePage from "../pages/HomePage";
-import LoginPage from "../pages/LoginPage";
-import PhonebookPage from "../pages/PhonebookPage";
-import RegisterPage from "../pages/RegisterPage";
+import { lazy } from "react";
 
 export const mainRoutes = {
-  authentication: {
-    register: {
+  auth: [
+    {
       name: "Register",
       path: "/register",
-      component: RegisterPage,
+      component: lazy(() =>
+        import("../pages/RegisterPage" /* webpackChunkName: 'RegisterPage' */)
+      ),
       exact: false,
       redirectTo: "/contacts",
+      private: false,
+      restricted: true,
     },
-    login: {
+    {
       name: "Login",
       path: "/login",
-      component: LoginPage,
+      component: lazy(() =>
+        import("../pages/LoginPage" /* webpackChunkName: 'LoginPage' */)
+      ),
       exact: false,
       redirectTo: "/contacts",
+      private: false,
+      restricted: true,
     },
-  },
+  ],
   homepage: {
     name: "Homepage",
     path: "/",
-    component: HomePage,
+    component: lazy(() =>
+      import("../pages/HomePage" /* webpackChunkName: 'HomePage' */)
+    ),
     exact: true,
   },
   phonebook: {
     name: "Phonebook",
     path: "/contacts",
-    component: PhonebookPage,
+    component: lazy(() =>
+      import("../pages/PhonebookPage" /* webpackChunkName: 'PhonebookPage' */)
+    ),
     exact: false,
+    redirectTo: "/",
+  },
+  resetHomeUrl: {
+    path: "/goit-react-hw-08-phonebook",
     redirectTo: "/",
   },
 };
