@@ -1,14 +1,9 @@
 import { createReducer } from "@reduxjs/toolkit";
+import { logoutSuccess } from "../auth/authActions";
 import {
-  addContactRequest,
-  addContactError,
   addContactSuccess,
-  fetchContactsError,
-  fetchContactsRequest,
   fetchContactsSuccess,
-  removeContactRequest,
   removeContactSuccess,
-  removeContactError,
 } from "./contactsActions";
 
 export const contactsItemReducer = createReducer([], {
@@ -18,22 +13,6 @@ export const contactsItemReducer = createReducer([], {
 
   [removeContactSuccess]: (state, { payload }) =>
     state.filter((el) => el.id !== payload),
-});
 
-export const error = createReducer("", {
-  [fetchContactsError]: (_, { payload }) => payload,
-  [addContactError]: (_, { payload }) => payload,
-  [removeContactError]: (_, { payload }) => payload,
-});
-
-export const loader = createReducer(false, {
-  [fetchContactsRequest]: () => true,
-  [fetchContactsSuccess]: () => false,
-  [fetchContactsError]: () => false,
-  [addContactRequest]: () => true,
-  [addContactSuccess]: () => false,
-  [addContactError]: () => false,
-  [removeContactRequest]: () => true,
-  [removeContactSuccess]: () => false,
-  [removeContactError]: () => false,
+  [logoutSuccess]: () => [],
 });

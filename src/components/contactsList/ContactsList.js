@@ -8,12 +8,13 @@ import {
   getLoaderCondition,
 } from "../../redux/contacts/contactsSelector";
 import { withRouter } from "react-router-dom";
+import Loader from "react-loader-spinner";
 
 const ContactList = ({ isLoading, filteredContacts }) => {
   return (
     <>
       {isLoading ? (
-        <h1>Loading...</h1>
+        <Loader type="ThreeDots" color="#00BFFF" height={80} width={80} />
       ) : (
         <ul className={styles.contactsList}>
           {filteredContacts.map((contact) => (

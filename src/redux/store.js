@@ -12,6 +12,8 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import rootReducer from "./rootReducer";
+import { loader } from "./loader/loaderReducer";
+import { error } from "./error/errorReducer";
 
 const authPersistConfig = {
   key: "token",
@@ -23,6 +25,8 @@ const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     contacts: rootReducer,
+    isLoading: loader,
+    error,
   },
   middleware: getDefaultMiddleware({
     serializableCheck: {
